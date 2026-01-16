@@ -8,3 +8,12 @@ spring:
     url: jdbc:mysql://database-dev.cj2kqciy821n.ap-northeast-2.rds.amazonaws.com/toy_aps
     username: admin
     password: ${DB_PASSWORD}
+
+  jpa: # ✨ 이 부분이 중요해! ✨
+    hibernate:
+      ddl-auto: update # 테스트 환경이므로 h2 같은 인메모리 DB를 사용할 때는 create-drop도 많이 써
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect # <-- 이 친구!
