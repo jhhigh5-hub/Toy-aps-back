@@ -7,4 +7,4 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://database-dev.cj2kqciy821n.ap-northeast-2.rds.amazonaws.com/toy_aps
     username: admin
-    password: ${password}
+    password: ${actual_password}
