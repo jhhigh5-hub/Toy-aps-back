@@ -1,11 +1,10 @@
 package com.example.toyapsback.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
-
-import java.util.List;
 
 @Entity
 @Setter
@@ -13,14 +12,19 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Job {
+public class Task {
     @Id
     private String id;
+
+    @JsonIgnore
+    @ManyToOne
+    private Job job;
+
+    private int seq;
     private String name;
     private String description;
-    private boolean active;
 
-    @OneToMany(mappedBy = "job")
-    private List<Task> tasks;
-
+    @ManyToOne
+    private Tool tool;
+    private int duration;
 }
